@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/.name
+.idea/TaisiiaLomanova.iml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/uiDesigner.xml
+.idea/workspace.xml
+TaisiiaLomanova.iml
+src/main/resources/
+target/
