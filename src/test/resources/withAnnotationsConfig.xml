@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Check Home Page" parallel="methods" thread-count="4" verbose="1" >
+
+    <test name="Home Page Text Checks With Annotations" >
+
+        <classes>
+            <class name="hw2.ex3.CheckHomePageAfterLoginWithAllAnnotations"/>
+        </classes>
+
+    </test>
+
+</suite>
+

@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Tests For Regression Run" parallel="methods" thread-count="4" verbose="1">
+
+    <test name="Regression Tests Run">
+        <groups>
+            <run>
+                <include name="Regression"/>
+                <exclude name="Smoke"/>
+            </run>
+        </groups>
+
+
+        <classes>
+            <class name="hw2.ex2.SimpleTestsForRegressionRun"/>
+            <class name="hw2.ex2.SimpleTestsForSmokeAndRegressionRuns"/>
+        </classes>
+
+    </test>
+
+</suite>
