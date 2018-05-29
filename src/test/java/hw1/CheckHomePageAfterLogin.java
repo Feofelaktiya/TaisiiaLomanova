@@ -12,12 +12,15 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.setProperty;
+
 
 public class CheckHomePageAfterLogin {
     WebDriver driver;
 
     @BeforeMethod
     public void beforeMethod() {
+        setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }

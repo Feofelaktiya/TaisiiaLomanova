@@ -6,11 +6,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
+import static java.lang.System.setProperty;
+
 public class SimpleTestsForSmokeAndRegressionRuns {
+
+    @BeforeClass
+    public void beforeClass() {
+        setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
+    }
 
     @Test(groups = { "Regression" })
     public void simpleSeleniumTest(){
