@@ -68,8 +68,8 @@ public class CheckHomePageAfterLogin {
 
         //7. Assert that there are 4 images on the Home Page and they are displayed
         int expectedSizeImages = 4;
-        int actualSize = driver.findElements(By.cssSelector(".benefit-icon")).size();
-        Assert.assertEquals(actualSize, expectedSizeImages);
+        List<WebElement> actualImages = driver.findElements(By.cssSelector(".benefit-icon"));
+        Assert.assertEquals(actualImages.size(), expectedSizeImages);
 
         //8. Assert that there are 4 texts on the Home Page under icons and they have proper text
 
