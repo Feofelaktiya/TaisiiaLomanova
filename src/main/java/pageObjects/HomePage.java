@@ -119,11 +119,11 @@ public class HomePage {
         Assert.assertEquals(subHeaderElement.getAttribute("href"), expectedURL);
     }
 
-    public void checkPageContainsNavigationSection(){
+    public void checkPageContainsNavigationSection() {
         Assert.assertTrue(navigationSidebar.isDisplayed());
     }
 
-    public void checkPageContainsFooter(){
+    public void checkPageContainsFooter() {
         Assert.assertTrue(footer.isDisplayed());
     }
 }

@@ -1,43 +1,40 @@
 package lesson4;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import base.TestBase;
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.SelenideElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static enums.Users.PITER_CHAILOVSKII;
 
-public class SimpleTest {
+/**
+ * Created by Danila_Morokov on 5/18/2018.
+ */
+//@Listeners({AllureAttachmentListener.class})
+public class SimpleTest extends TestBase {
 
     @Test
-    public void simpleSeleniumTest(){
-       // System.setProperty("webdriver.chrome.driver");
-        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download_default_directory", "target");
+    public void simpleSeleniumTest() {
 
-        ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("pref", chromePrefs);
+        open("https://epam.github.io/JDI/index.html");
+        Assert.assertEquals(getWebDriver().getTitle(), "Home Page");
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
+        $(".profile-photo").click();
 
-        Assert.assertEquals(driver.getTitle(),"Index Page"); //класс проверок TestNG
+        $("#Name").sendKeys(PITER_CHAILOVSKII.login);
+        $("#Password").sendKeys(PITER_CHAILOVSKII.password);
+        $(".form-horizontal button[type = 'submit']").click();
 
-        WebElement userIcon = driver.findElement(By.cssSelector(".fa-user"));
-        userIcon.click();
-        driver.findElement(By.cssSelector("#Login")).sendKeys("epam");
-        driver.findElement(By.cssSelector("#Password")).sendKeys("1234");
-        driver.findElement(By.cssSelector(".form-horizontal button[type = 'submit']")).click();
-        WebElement userName = driver.findElement(By.cssSelector(".profile-photo span"));
-        Assert.assertEquals(userName.getText(), "PITER CHAILOVSKII");
+        SelenideElement userName = $(".profile-photo span");
+        userName.shouldBe(visible);
+        userName.shouldHave(text(PITER_CHAILOVSKII.name));
 
-        driver.close();
-
+        $$(".benefit-icon").shouldHaveSize(4);
+        $$(".benefit-icon").shouldBe(CollectionCondition.texts("", "", "", ""));
     }
-
-
 }
