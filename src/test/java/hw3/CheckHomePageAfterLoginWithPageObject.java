@@ -8,13 +8,12 @@ import pageObjects.HomePage;
 
 import static java.lang.System.setProperty;
 
-
+@Test(groups = {"Regression"})
 public class CheckHomePageAfterLoginWithPageObject {
     private WebDriver driver;
     private HomePage homePage;
 
     @BeforeSuite
-
     public void beforeSuite() {
         setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
     }
@@ -69,7 +68,6 @@ public class CheckHomePageAfterLoginWithPageObject {
         //7. Assert that there are 4 images on the Home Page and they are displayed
         homePage.checkPageContainsImages();
 
-
         //8. Assert that there are 4 texts on the Home Page under icons and they have proper text
         homePage.checkPageContainsTexts();
 
@@ -83,7 +81,7 @@ public class CheckHomePageAfterLoginWithPageObject {
         homePage.checkJDILinkURL();
 
         //12. Assert that there is Left Section
-       homePage.checkPageContainsNavigationSection();
+        homePage.checkPageContainsNavigationSection();
 
         //13. Assert that there is Footer
         homePage.checkPageContainsFooter();

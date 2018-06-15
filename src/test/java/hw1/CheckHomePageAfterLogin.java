@@ -14,9 +14,9 @@ import java.util.List;
 
 import static java.lang.System.setProperty;
 
-
+@Test
 public class CheckHomePageAfterLogin {
-    WebDriver driver;
+    private WebDriver driver;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -25,16 +25,12 @@ public class CheckHomePageAfterLogin {
         driver.manage().window().maximize();
     }
 
-
     @AfterMethod
     public void afterMethod() {
         driver.close();
-
     }
 
     @Test
-
-
     public void checkHomePageAfterLogin() {
 
         //1. Open test site by URL
@@ -72,7 +68,6 @@ public class CheckHomePageAfterLogin {
         Assert.assertEquals(actualImages.size(), expectedSizeImages);
 
         //8. Assert that there are 4 texts on the Home Page under icons and they have proper text
-
         List<String> expectedTexts = Arrays.asList(
                 "To include good practices\nand ideas from successful\nEPAM project",
                 "To be flexible and\ncustomizable",

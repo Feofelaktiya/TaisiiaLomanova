@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 import static java.lang.System.setProperty;
 
+@Test(groups = {"Regression"})
 public class SimpleTestsForSmokeAndRegressionRuns {
 
     @BeforeClass
@@ -20,8 +21,8 @@ public class SimpleTestsForSmokeAndRegressionRuns {
         setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
     }
 
-    @Test(groups = { "Regression" })
-    public void simpleSeleniumTest(){
+    @Test(groups = {"Regression"})
+    public void simpleSeleniumTest() {
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download_default_directory", "target");
 
@@ -32,7 +33,7 @@ public class SimpleTestsForSmokeAndRegressionRuns {
         driver.manage().window().maximize();
         driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
 
-        Assert.assertEquals(driver.getTitle(),"Index Page");
+        Assert.assertEquals(driver.getTitle(), "Index Page");
 
         WebElement userIcon = driver.findElement(By.cssSelector(".fa-user"));
         userIcon.click();
@@ -46,8 +47,8 @@ public class SimpleTestsForSmokeAndRegressionRuns {
 
     }
 
-    @Test(groups = { "Regression" })
-    public void simpleSeleniumTest2(){
+    @Test(groups = {"Regression"})
+    public void simpleSeleniumTest2() {
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download_default_directory", "target");
 
@@ -58,7 +59,7 @@ public class SimpleTestsForSmokeAndRegressionRuns {
         driver.manage().window().maximize();
         driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
 
-        Assert.assertEquals(driver.getTitle(),"Index Page");
+        Assert.assertEquals(driver.getTitle(), "Index Page");
 
         WebElement userIcon = driver.findElement(By.cssSelector(".fa-user"));
         userIcon.click();
@@ -72,9 +73,9 @@ public class SimpleTestsForSmokeAndRegressionRuns {
 
     }
 
-    @Test(groups = { "Smoke" })
-    public void simpleSeleniumTest3(){
-       HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+    @Test(groups = {"Smoke"})
+    public void simpleSeleniumTest3() {
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download_default_directory", "target");
 
         ChromeOptions options = new ChromeOptions();
@@ -84,7 +85,7 @@ public class SimpleTestsForSmokeAndRegressionRuns {
         driver.manage().window().maximize();
         driver.navigate().to("https://jdi-framework.github.io/tests/index.htm");
 
-        Assert.assertEquals(driver.getTitle(),"Index Page");
+        Assert.assertEquals(driver.getTitle(), "Index Page");
 
         WebElement userIcon = driver.findElement(By.cssSelector(".fa-user"));
         userIcon.click();

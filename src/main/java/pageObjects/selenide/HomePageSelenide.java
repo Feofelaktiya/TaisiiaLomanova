@@ -1,10 +1,9 @@
-package pageObjects;
+package pageObjects.selenide;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
@@ -12,16 +11,13 @@ import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.$;
 import static enums.Texts.aboveTexts.ABOVE_TEXTS;
 import static enums.Texts.benefitTexts.BENEFIT_TEXTS;
-import static enums.Texts.checkboxTexts.CHECKBOX_TEXTS;
-import static enums.Texts.radiobuttonTexts.RADIOBUTTON_TEXTS;
 import static enums.Texts.sectionTitles.SECTION_TITLES;
 import static enums.Texts.serviceOptions.SERVICE_OPTIONS;
-import static enums.Texts.webElementTypes.WEB_ELEMENT_TYPES;
 import static enums.Users.PITER_CHAILOVSKII;
 
 public class HomePageSelenide {
-        @FindBy(css = ".profile-photo")
 
+    @FindBy(css = ".profile-photo")
     private SelenideElement userIcon;
 
     @FindBy(css = "#Name")
@@ -68,33 +64,6 @@ public class HomePageSelenide {
 
     @FindBy(css = "p > span")
     private ElementsCollection leftSectionElements;
-
-    @FindBy(css = ".label-checkbox")
-    private ElementsCollection labelCheckboxes;
-
-    @FindBy(css = ".label-radio")
-    private ElementsCollection labelRadiobuttons;
-
-    @FindBy(css = "select.uui-form-element > option")
-    private ElementsCollection colorDropdown;
-
-    @FindBy(css = "select.uui-form-element")
-    private SelenideElement selectedColorField;
-
-    @FindBy(css = "button.uui-button")
-    private SelenideElement defaultButton;
-
-    @FindBy(css = "input.uui-button")
-    private SelenideElement button;
-
-    @FindBy(css = "div[name=log-sidebar]")
-    private SelenideElement rightSection;
-
-    @FindBy(css = "div[name=navigation-sidebar]")
-    private SelenideElement leftSection;
-
-    @FindBy(css = "ul.panel-body-list.logs > li")
-    private ElementsCollection logs;
 
 
     public void open() {
@@ -144,70 +113,10 @@ public class HomePageSelenide {
 
     }
 
-    public void openDifferentElementsPage() {
-        leftSectionElements.findBy(text(SERVICE_OPTIONS.differentElements)).click();
-        $(byTitle("Different Element")).isDisplayed();
+    public void openPage(String page) {
+        leftSectionElements.findBy(text(page)).click();
+        $(byTitle(page.toLowerCase())).isDisplayed();
 
-    }
-
-    public void checkElementsOnDifferentElementsPage() {
-        labelCheckboxes.shouldHave(texts(CHECKBOX_TEXTS.water, CHECKBOX_TEXTS.earth, CHECKBOX_TEXTS.wind, CHECKBOX_TEXTS.fire));
-        labelRadiobuttons.shouldHave(texts(RADIOBUTTON_TEXTS.gold, RADIOBUTTON_TEXTS.silver, RADIOBUTTON_TEXTS.bronze, RADIOBUTTON_TEXTS.selen));
-        selectedColorField.isDisplayed();
-        defaultButton.isDisplayed();
-        button.isDisplayed();
-    }
-
-    public void checkRightSectionIsDisplayed() {
-        rightSection.isDisplayed();
-    }
-
-    public void checkLeftSectionIsDisplayed() {
-        leftSection.isDisplayed();
-    }
-
-    public void selectWebElement(String webElementType, String type) {
-        if (webElementType.equals(WEB_ELEMENT_TYPES.chbx)) {
-            labelCheckboxes.findBy(text(type)).click();
-        }
-        if (webElementType.equals(WEB_ELEMENT_TYPES.radio)) {
-            labelRadiobuttons.findBy(text(type)).click();
-        }
-        if (webElementType.equals(WEB_ELEMENT_TYPES.ddown)) {
-            selectedColorField.click();
-            colorDropdown.findBy(text(type)).click();
-            selectedColorField.shouldHave(text(type));
-        }
-    }
-
-    public void checkLogForCheckboxex(String type, int logsAmount, boolean checkedStatus) {
-        logs.shouldHaveSize(logsAmount);
-        String actual = logs.findBy(text(type)).text();
-        String[] parts = actual.split(" ", 2);
-        String numbers = parts[0];
-        String characters = parts[1];
-        String expected = type + ": condition changed to " + checkedStatus;
-        Assert.assertEquals(characters, expected);
-    }
-
-    public void checkLogForRadiobuttons(int logsAmount, String metal) {
-        logs.shouldHaveSize(logsAmount);
-        String actual = logs.findBy(text(metal)).text();
-        String[] parts = actual.split(" ", 2);
-        String numbers = parts[0];
-        String characters = parts[1];
-        String expected = "metal: value changed to " + metal;
-        Assert.assertEquals(characters, expected);
-    }
-
-    public void checkLogForDropdown(int logAmount, String color) {
-        logs.shouldHaveSize(logAmount);
-        String actual = logs.findBy(text(color)).text();
-        String[] parts = actual.split(" ", 2);
-        String numbers = parts[0];
-        String characters = parts[1];
-        String expected = "Colors: value changed to " + color;
-        Assert.assertEquals(characters, expected);
     }
 }
 

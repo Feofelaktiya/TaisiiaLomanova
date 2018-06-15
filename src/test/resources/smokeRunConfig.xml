@@ -1,7 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Tests For Smoke Run" parallel="methods" thread-count="4" verbose="1">
-
     <test name="Smoke Tests Run">
         <groups>
             <run>
@@ -9,13 +8,9 @@
                 <exclude name="Regression"/>
             </run>
         </groups>
-
-
         <classes>
             <class name="hw2.ex2.SimpleTestsForSmokeRun"/>
             <class name="hw2.ex2.SimpleTestsForSmokeAndRegressionRuns"/>
         </classes>
-
     </test>
-
 </suite>

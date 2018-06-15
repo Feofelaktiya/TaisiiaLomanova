@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 import static java.lang.System.setProperty;
 
-@Test (groups = { "Smoke" })
+@Test (groups = {"Smoke"})
 public class SimpleTestsForSmokeRun {
 
     @BeforeClass

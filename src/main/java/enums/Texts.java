@@ -32,7 +32,6 @@ public class Texts {
             this.benefitTwo = two;
             this.benefitThree = three;
             this.benefitFour = four;
-
         }
     }
 
@@ -70,7 +69,6 @@ public class Texts {
             this.tableWithWages = six;
             this.differentElements = seven;
             this.performance = eight;
-
         }
     }
 
@@ -93,16 +91,14 @@ public class Texts {
         public String wind;
         public String fire;
 
-
         checkboxTexts(String one, String two, String three, String four) {
             this.water = one;
             this.earth = two;
             this.wind = three;
             this.fire = four;
-
-
         }
     }
+
     public enum radiobuttonTexts {
         RADIOBUTTON_TEXTS("Gold", "Silver", "Bronze", "Selen");
         public String gold;
@@ -110,16 +106,14 @@ public class Texts {
         public String bronze;
         public String selen;
 
-
         radiobuttonTexts(String one, String two, String three, String four) {
             this.gold = one;
             this.silver = two;
             this.bronze = three;
             this.selen = four;
         }
-
-
     }
+
     public enum dropdownColors {
         DROPDOWN_COLORS("Red", "Green", "Blue", "Yellow");
         public String red;
@@ -133,8 +127,17 @@ public class Texts {
             this.blue = three;
             this.yellow = four;
         }
-
     }
 
+    public enum rangeLogs {
+        RANGE_LOGS("To", "From");
+        public String to;
+        public String from;
+
+        rangeLogs(String one, String two) {
+            this.to = one;
+            this.from = two;
+        }
+    }
 }
 

@@ -12,12 +12,11 @@ import java.util.List;
 
 import static java.lang.System.setProperty;
 
-
+@Test(groups = {"Regression"})
 public class CheckHomePageAfterLoginWithAllAnnotations {
-    WebDriver driver;
+    private WebDriver driver;
 
     @BeforeSuite
-
     public void beforeSuite() {
         setProperty("webdriver.chrome.driver", "src/chromedriver.exe");
     }
@@ -85,7 +84,6 @@ public class CheckHomePageAfterLoginWithAllAnnotations {
         Assert.assertEquals(actualSize, expectedSizeImages);
 
         //8. Assert that there are 4 texts on the Home Page under icons and they have proper text
-
         List<String> expectedTexts = Arrays.asList(
                 "To include good practices\nand ideas from successful\nEPAM project",
                 "To be flexible and\ncustomizable",

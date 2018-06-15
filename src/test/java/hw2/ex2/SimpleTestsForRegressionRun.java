@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 import static java.lang.System.setProperty;
 
-@Test(groups = { "Regression" })
+@Test(groups = { "Regression"})
 public class SimpleTestsForRegressionRun {
 
     @BeforeClass

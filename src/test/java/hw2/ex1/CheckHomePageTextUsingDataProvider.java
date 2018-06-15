@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static java.lang.System.setProperty;
-
+@Test
 public class CheckHomePageTextUsingDataProvider {
     @BeforeClass
     public void beforeClass() {
