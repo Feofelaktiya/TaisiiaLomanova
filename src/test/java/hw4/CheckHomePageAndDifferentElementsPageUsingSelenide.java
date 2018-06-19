@@ -1,6 +1,7 @@
 package hw4;
 
 import com.codeborne.selenide.Configuration;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -16,6 +17,7 @@ import static enums.Texts.serviceOptions.SERVICE_OPTIONS;
 import static enums.Texts.webElementTypes.WEB_ELEMENT_TYPES;
 import static enums.Users.PITER_CHAILOVSKII;
 
+@Test (groups = "hw4")
 public class CheckHomePageAndDifferentElementsPageUsingSelenide {
     private HomePageSelenide homepage;
     private DifferentElementsPageSelenide diffElementsPage;
@@ -30,6 +32,11 @@ public class CheckHomePageAndDifferentElementsPageUsingSelenide {
     public void beforeClass() {
         homepage = page(HomePageSelenide.class);
         diffElementsPage = page(DifferentElementsPageSelenide.class);
+    }
+
+    @AfterClass
+    public void afterClass(){
+        close();
     }
 
     @Test
@@ -98,6 +105,5 @@ public class CheckHomePageAndDifferentElementsPageUsingSelenide {
         diffElementsPage.checkLogForCheckboxex(2, CHECKBOX_TEXTS.water, false);
         diffElementsPage.checkLogForCheckboxex(1, CHECKBOX_TEXTS.wind, false);
 
-        close();
     }
 }

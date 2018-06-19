@@ -29,7 +29,7 @@ public class DataPageSelenide {
     @FindBy(css = ".ui-slider")
     private SelenideElement slider;
 
-    public void moveLeftPoint(String ValueLeft, int expectedPositionLeft) {
+    public void moveLeftPoint(int ValueLeft, int expectedPositionLeft) {
         SelenideElement leftPoint = handles.get(0);
         int size = slider.getSize().width;
         int actualPosition = Integer.parseInt(leftPoint.getText()) + 1;
@@ -40,7 +40,7 @@ public class DataPageSelenide {
         }
     }
 
-    public void moveRightPoint(String ValueRight, int expectedPositionRight) {
+    public void moveRightPoint(int ValueRight, int expectedPositionRight) {
         SelenideElement rightPoint = handles.get(1);
         int size = slider.getSize().width;
         int actualPosition = Integer.parseInt(rightPoint.getText()) + 1;
