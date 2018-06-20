@@ -3,10 +3,8 @@ package hw4;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import listeners.AllureAttachmentListener;
+import org.testng.annotations.*;
 import pageObjects.selenide.DifferentElementsPageSelenide;
 import pageObjects.selenide.HomePageSelenide;
 
@@ -21,6 +19,7 @@ import static enums.Users.PITER_CHAILOVSKII;
 
 @Feature("Different Page")
 @Story("Checkboxes/radiobuttons choice and dropdown selection  on Different Elements page are logged in the Log list")
+@Listeners(AllureAttachmentListener.class)
 @Test(groups = "hw4")
 
 public class CheckHomePageAndDifferentElementsPageUsingSelenide {

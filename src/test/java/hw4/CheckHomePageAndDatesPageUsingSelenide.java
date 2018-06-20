@@ -3,6 +3,7 @@ package hw4;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import listeners.AllureAttachmentListener;
 import org.testng.annotations.*;
 import pageObjects.selenide.DataPageSelenide;
 import pageObjects.selenide.HomePageSelenide;
@@ -15,6 +16,7 @@ import static enums.Users.PITER_CHAILOVSKII;
 
 @Feature("Data Page")
 @Story("Slider ranging on Data Page is logged in the Log list")
+@Listeners(AllureAttachmentListener.class)
 @Test (groups = "hw4")
 
 public class CheckHomePageAndDatesPageUsingSelenide {
