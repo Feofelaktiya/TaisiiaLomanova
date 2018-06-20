@@ -1,5 +1,7 @@
 package hw2.ex2;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +15,8 @@ import java.util.HashMap;
 
 import static java.lang.System.setProperty;
 
+@Feature("Home Page")
+@Story("Home Page after login contains certain elements")
 @Test (groups = {"Smoke"})
 public class SimpleTestsForSmokeRun {
 

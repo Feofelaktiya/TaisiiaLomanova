@@ -3,6 +3,7 @@ package pageObjects.selenide;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
@@ -65,16 +66,18 @@ public class HomePageSelenide {
     @FindBy(css = "p > span")
     private ElementsCollection leftSectionElements;
 
-
+    @Step("Open browser")
     public void open() {
         Selenide.open("https://epam.github.io/JDI/");
 
     }
 
+    @Step("Check home page title")
     public void checkBrowserTitleIsDisplayed() {
         $(byTitle("Home Page")).isDisplayed();
     }
 
+    @Step("Login to the web application")
     public void login(String name, String password) {
         $(userIcon).click();
         $(loginInput).sendKeys(name);
@@ -82,11 +85,13 @@ public class HomePageSelenide {
         submitButton.click();
     }
 
+    @Step("Check that login is successful by checking user name")
     public void checkUserName() {
         userName.isDisplayed();
         userName.shouldHave(text(PITER_CHAILOVSKII.name));
     }
 
+    @Step("Check elements on the home page")
     public void checkElementsOnHomePage() {
         actualImages.shouldHaveSize(4);
         actualTexts.shouldBe(texts(BENEFIT_TEXTS.benefitOne,
@@ -95,6 +100,7 @@ public class HomePageSelenide {
         jdiText.shouldHave(text(ABOVE_TEXTS.lorem));
     }
 
+    @Step("Check dropdown options on the home page")
     public void checkDropdownOptions() {
         dropdownName.shouldHave(text(SECTION_TITLES.service)).click();
         dropdownOptions.shouldHaveSize(8);
@@ -104,6 +110,7 @@ public class HomePageSelenide {
                 SERVICE_OPTIONS.differentElements, SERVICE_OPTIONS.performance));
     }
 
+    @Step("Check navigation section dropdown options on the home page")
     public void checkLeftSectionDropdownOptions() {
         leftSectionElements.shouldHaveSize(8);
         leftSectionElements.shouldHave(texts(SERVICE_OPTIONS.support,
@@ -113,6 +120,7 @@ public class HomePageSelenide {
 
     }
 
+    @Step("Open page from navigation section")
     public void openPage(String page) {
         leftSectionElements.findBy(text(page)).click();
         $(byTitle(page.toLowerCase())).isDisplayed();

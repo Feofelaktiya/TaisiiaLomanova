@@ -1,5 +1,7 @@
 package hw1;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +16,9 @@ import java.util.List;
 
 import static java.lang.System.setProperty;
 
-@Test
+@Feature("Home Page")
+@Story("Home Page after login contains certain elements")
+
 public class CheckHomePageAfterLogin {
     private WebDriver driver;
 

@@ -1,6 +1,8 @@
 package hw5;
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
@@ -18,6 +20,9 @@ import static enums.Texts.webElementTypes.WEB_ELEMENT_TYPES;
 import static enums.Users.PITER_CHAILOVSKII;
 
 @Test (groups = "hw5")
+@Feature("Different Page")
+@Story("Checkboxes/radiobuttons choice and dropdown selection  on Different Elements page are logged in the Log list")
+
 public class CheckHomePageAndDifferentElementsPageSelenideWithJenkinsJob {
     private HomePageSelenide homepage;
     private DifferentElementsPageSelenide diffElementsPage;

@@ -1,5 +1,6 @@
 package pageObjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -48,14 +49,17 @@ public class HomePage {
     @FindBy(css = ".footer-bg")
     private WebElement footer;
 
+    @Step("Open browser")
     public void open(WebDriver driver) {
         driver.navigate().to("https://epam.github.io/JDI/");
     }
 
+    @Step("Check home page title")
     public void checkHomePageTitle(WebDriver driver) {
         Assert.assertEquals(driver.getTitle(), "Home Page");
     }
 
+    @Step("Login to the web application")
     public void login(String login, String password) {
         userIcon.click();
         loginInput.sendKeys("epam");
@@ -63,10 +67,12 @@ public class HomePage {
         submitButton.click();
     }
 
+    @Step("Check that login is successful by checking user name")
     public void checkUserName() {
         Assert.assertEquals(userName.getText(), "PITER CHAILOVSKII");
     }
 
+    @Step("Check tabs on the home page")
     public void checkPageContainsElements() {
         List<String> expectedSections = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         int expectedSizeHeaderSections = 4;
@@ -76,11 +82,13 @@ public class HomePage {
         }
     }
 
+    @Step("Check images on the home page")
     public void checkPageContainsImages() {
         int expectedSizeImages = 4;
         Assert.assertEquals(actualImages.size(), expectedSizeImages);
     }
 
+    @Step("Check texts on the home page")
     public void checkPageContainsTexts() {
         List<String> expectedTexts = Arrays.asList(
                 "To include good practices\nand ideas from successful\nEPAM project",
@@ -95,6 +103,7 @@ public class HomePage {
         }
     }
 
+    @Step("Check special texts on the home page")
     public void checkPageContainsSpecialTexts() {
         String EpamText = "EPAM FRAMEWORK WISHES…";
         String LoremText = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT " +
@@ -108,21 +117,25 @@ public class HomePage {
         Assert.assertEquals(jdiText.getText(), LoremText);
     }
 
+    @Step("Check text of the subheader")
     public void checkTTextOfTheSubHeader() {
         String expectedSubHeaderText = "JDI GITHUB";
         Assert.assertTrue(subHeaderElement.isDisplayed());
         Assert.assertEquals(subHeaderElement.getText(), expectedSubHeaderText);
     }
 
+    @Step("Check link of JDI")
     public void checkJDILinkURL() {
         String expectedURL = "https://github.com/epam/JDI";
         Assert.assertEquals(subHeaderElement.getAttribute("href"), expectedURL);
     }
 
+    @Step("Check page contains navigation section")
     public void checkPageContainsNavigationSection() {
         Assert.assertTrue(navigationSidebar.isDisplayed());
     }
 
+    @Step("Check page contains footer")
     public void checkPageContainsFooter() {
         Assert.assertTrue(footer.isDisplayed());
     }

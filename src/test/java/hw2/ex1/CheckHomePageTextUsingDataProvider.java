@@ -1,5 +1,7 @@
 package hw2.ex1;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +12,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static java.lang.System.setProperty;
-@Test
+
+@Feature("Home Page")
+@Story("Home Page after login contains certain elements")
 public class CheckHomePageTextUsingDataProvider {
     @BeforeClass
     public void beforeClass() {

@@ -2,6 +2,7 @@ package pageObjects.selenide;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -44,6 +45,7 @@ public class DifferentElementsPageSelenide {
     @FindBy(css = "ul.panel-body-list.logs > li")
     private List<SelenideElement> logs;
 
+    @Step("Check elements on the Different Elements page")
     public void checkElementsOnDifferentElementsPage() {
         labelCheckboxes.shouldHave(texts(CHECKBOX_TEXTS.water, CHECKBOX_TEXTS.earth, CHECKBOX_TEXTS.wind, CHECKBOX_TEXTS.fire));
         labelRadiobuttons.shouldHave(texts(RADIOBUTTON_TEXTS.gold, RADIOBUTTON_TEXTS.silver, RADIOBUTTON_TEXTS.bronze, RADIOBUTTON_TEXTS.selen));
@@ -52,14 +54,17 @@ public class DifferentElementsPageSelenide {
         button.isDisplayed();
     }
 
+    @Step("Check right section is displayed on the Different Elements page")
     public void checkRightSectionIsDisplayed() {
         rightSection.isDisplayed();
     }
 
+    @Step("Check page contains navigation section")
     public void checkLeftSectionIsDisplayed() {
         navigationSidebar.isDisplayed();
     }
 
+    @Step("Select particular element")
     public void selectWebElement(String webElementType, String type) {
         if (webElementType.equals(WEB_ELEMENT_TYPES.chbx)) {
             labelCheckboxes.findBy(text(type)).click();
@@ -74,14 +79,17 @@ public class DifferentElementsPageSelenide {
         }
     }
 
+    @Step("Check logs for checkboxes")
     public void checkLogForCheckboxex(int logNumber, String type, boolean checkedStatus) {
         logs.get(logNumber - 1).shouldHave(text(type + ": condition changed to " + checkedStatus));
     }
 
+    @Step("Check logs for radiobutton")
     public void checkLogForRadiobuttons(int logNumber, String metal) {
         logs.get(logNumber - 1).shouldHave(text("metal: value changed to " + metal));
     }
 
+    @Step("Check logs for dropdown")
     public void checkLogForDropdown(int logNumber, String color) {
         logs.get(logNumber - 1).shouldHave(text("Colors: value changed to " + color));
     }

@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Jenkins" parallel="methods" thread-count="4" verbose="1">
+
+    <test name="all">
+        <packages>
+            <package name="hw1"/>
+            <package name="hw2.*"/>
+            <package name="hw3"/>
+            <package name="hw4"/>
+            <package name="hw5"/>
+        </packages>
+    </test>
+</suite>

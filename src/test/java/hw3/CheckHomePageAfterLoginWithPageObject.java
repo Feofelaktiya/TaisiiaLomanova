@@ -1,5 +1,7 @@
 package hw3;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -8,6 +10,8 @@ import pageObjects.HomePage;
 
 import static java.lang.System.setProperty;
 
+@Feature("Home Page")
+@Story("Home Page after login contains certain elements")
 @Test(groups = {"Regression"})
 public class CheckHomePageAfterLoginWithPageObject {
     private WebDriver driver;
