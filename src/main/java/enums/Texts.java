@@ -139,5 +139,27 @@ public class Texts {
             this.from = two;
         }
     }
+
+    public enum usersInTable {
+        USERS_IN_TABLE("Roman", "Sergey Ivan", "Vladzimir", "Helen Bennett", "Yoshi Tannamuri", "Giovanni Rovelli");
+        public String roman;
+        public String ivan;
+        public String vlad;
+        public String helen;
+        public String yoshi;
+        public String giovanni;
+
+        usersInTable(String one, String two, String three, String four, String five, String six){
+            this.roman = one;
+            this.ivan = two;
+            this.vlad = three;
+            this.helen = four;
+            this.yoshi = five;
+            this.giovanni = six;
+        }
+
+
+
+    }
 }
 
